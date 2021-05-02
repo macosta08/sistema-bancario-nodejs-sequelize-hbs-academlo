@@ -1,0 +1,55 @@
+<section id="add" class="container">
+    <div class="form-wrap">
+        <h1>Agregar un cliente</h1>
+        <p>Los movimientos de su cuenta bancaria serán notificados por correo</p>
+        <form action="/clientes" method="POST">
+            <div class="input-group">
+                <label for="nombre">Nombres</label>
+                <input type="text" name="nombre" id="nombre" class="input-box" placeholder="Nombres de cliente"
+                    maxlength="100" required>
+            </div>
+            <div class="input-group">
+                <label for="apellido">Apellidos</label>
+                <input type="text" name="apellido" id="apellido" class="input-box" placeholder="Apellidos del cliente"
+                    maxlength="100" required>
+            </div>
+            <div class="input-group">
+                <label for="correo">Correo</label>
+                <input type="email" name="correo" id="correo" class="input-box" placeholder="Correo del cliente"
+                    maxlength="100" required>
+            </div>
+            <div class="input-group">
+                <label for="tel">Teléfono</label>
+                <input type="number" name="tel" id="tel" class="input-box" placeholder="Teléfono del cliente"
+                    max="9999999" required>
+            </div>
+            <input type="submit" value="Agregar cliente" class="btn btn-reverse">
+        </form>
+    </div>
+</section>
+
+
+<section id="clientes" class="container">
+    <h1>Clientes</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Email</th>
+                <th scope="col">Teléfono</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each clients}}
+            <tr>
+                <td>{{first_name}}</td>
+                <td>{{last_name}}</td>
+                <td>{{email}}</td>
+                <td>{{telephone}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</section>
