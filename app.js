@@ -5,11 +5,10 @@ const bodyParser = require("body-parser"); //To get the data from a form
 const path = require("path");
 const {
   allowInsecurePrototypeAccess,
-} = require("@handlebars/allow-prototype-access");
+} = require("@handlebars/allow-prototype-access"); 
 
 // Enviroment variables
 require('dotenv').config()
-
 
 //Database
 const db = require("./config/database");
@@ -36,10 +35,11 @@ app.engine(
     handlebars: allowInsecurePrototypeAccess(Handlebars),
   })
 );
+app.set("view engine", "handlebars");
+
 // Body Parser
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.set("view engine", "handlebars");
 // Set static folder
 app.use(express.static(path.join(__dirname, "public")));
 
